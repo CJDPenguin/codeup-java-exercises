@@ -1,33 +1,44 @@
+import java.util.Scanner;
+
 public class W3PracticeExercises {
+
+    public static void main(String[] args) {
+
 //    Java Basic Exercises [150 exercises with solution]
 //           
 //            1. Write a Java program to print 'Hello' on screen and then print your name on a separate line. 
 //    Expected Output :
 //    Hello
 //    Alexandra Abramov
-//
-//    
-//
+
+    System.out.println("Hello \nChris");
+
 //2. Write a Java program to print the sum of two numbers. 
 //    Test Data:
 //            74 + 36
 //    Expected Output :
 //            110
-//
-//    
-//
+
+        int first = 74;
+        int second = 36;
+
+        System.out.println(first + second);
+
 //3. Write a Java program to divide two numbers and print on the screen. 
 //    Test Data :
 //            50/3
 //    Expected Output :
 //            16
-//
-//    
-//
+
+        int div1 = 50;
+        int div2 = 3;
+
+        System.out.println(div1 / div2);
+
 //4. Write a Java program to print the result of the following operations. 
 //    Test Data:
 //    a. -5 + 8 * 6
-//            b. (55+9) % 9
+//    b. (55+9) % 9
 //    c. 20 + -3*5 / 8
 //    d. 5 + 15 / 3 * 2 - 8 % 3
 //    Expected Output :
@@ -35,19 +46,27 @@ public class W3PracticeExercises {
 //            1
 //            19
 //            13
-//
-//    
-//
+
+        System.out.println(-5 + 8 * 6);
+        System.out.println((55 + 9) % 9);
+        System.out.println(20 + -3 * 5 / 8);
+        System.out.println(5 + 15 / 3 * 2 - 8 % 3);
+
 //5. Write a Java program that takes two numbers as input and display the product of two numbers. 
 //    Test Data:
 //    Input first number: 25
 //    Input second number: 5
 //    Expected Output :
 //            25 x 5 = 125
-//
-//    
-//
-//6. Write a Java program to print the sum (addition), multiply, subtract, divide and remainder of two numbers. 
+
+        Scanner in = new Scanner(System.in);
+        System.out.print("Input first number: ");
+        int num1 = in.nextInt();
+        System.out.print("Input second number: ");
+        int num2 = in.nextInt();
+        System.out.println(num1 + " x " + num2 + " = " + num1 * num2);
+
+//6. Write a Java program to print the sum (addition), multiply, subtract, divide and remainder of two numbers.
 //    Test Data:
 //    Input first number: 125
 //    Input second number: 24
@@ -57,9 +76,19 @@ public class W3PracticeExercises {
 //            125 x 24 = 3000
 //            125 / 24 = 5
 //            125 mod 24 = 5
-//
-//    
-//
+
+        Scanner next = new Scanner(System.in);
+        System.out.print("Input first number: ");
+        int inNum1 = next.nextInt();
+        System.out.print("Input second number: ");
+        int inNum2 = next.nextInt();
+
+        System.out.println(inNum1 + " + " + inNum2 + " = " + (inNum1 + inNum2) + "\n"
+                + inNum1 + " - " + inNum2 + " = " + (inNum1 - inNum2) + "\n"
+                + inNum1 + " x " + inNum2 + " = " + (inNum1 * inNum2) + "\n"
+                + inNum1 + " / " + inNum2 + " = " + (inNum1 / inNum2) + "\n"
+                + inNum1 + " mod " + inNum2 + " = " + (inNum1 % inNum2));
+
 //7. Write a Java program that takes a number as input and prints its multiplication table upto 10. 
 //    Test Data:
 //    Input a number: 8
@@ -69,9 +98,15 @@ public class W3PracticeExercises {
 //            8 x 3 = 24
 //            ...
 //            8 x 10 = 80
-//
-//    
-//
+
+        Scanner mult = new Scanner(System.in);
+
+        System.out.print("Number for multiplication table: ");
+        int inMult = mult.nextInt();
+        for (int multiple = 1; multiple <= 10; multiple++) {
+            System.out.println(inMult + " x " + multiple + " = " + (inMult * multiple));
+        }
+
 //8. Write a Java program to display the following pattern. 
 //    Sample Pattern :
 //
@@ -1055,4 +1090,5 @@ public class W3PracticeExercises {
 //Original strings: xxyz yxzx
 //true
 //
+    }
 }
