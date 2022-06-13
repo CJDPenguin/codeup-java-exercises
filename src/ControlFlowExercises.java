@@ -71,7 +71,7 @@ public class ControlFlowExercises {
                 System.out.println("|--------|---------|-------|");
                 int num = 1;
             do {
-                System.out.printf("| %d      | %.0f       | %.0f     |\n",num, Math.pow(num, 2), Math.pow(num, 3));
+                System.out.printf("| %-6d | %-7.0f | %-5.0f |\n",num, Math.pow(num, 2), Math.pow(num, 3));
                 num++;
             } while (num <= tableNum);
             System.out.print("Would you like to see another table? ");
