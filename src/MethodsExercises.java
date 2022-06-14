@@ -61,25 +61,25 @@ public class MethodsExercises {
 
     public static void main(String[] args) {
 
-//        System.out.println("Enter your first number: ");
-//
-//        double first = in.nextDouble();
-//
-//        System.out.println("Enter your second number: ");
-//
-//        double second = in.nextDouble();
-//
-//        System.out.println(addition(first, second));
-//
-//        System.out.println(subtraction(first, second));
-//
-//        System.out.println(multiplication(first, second, 0));
-//
-//        System.out.println(division(first, second));
-//
-//        System.out.println(modulus(first, second));
+        System.out.println("Enter your first number: ");
 
-//        factorial(valid());
+        double first = in.nextDouble();
+
+        System.out.println("Enter your second number: ");
+
+        double second = in.nextDouble();
+
+        System.out.println(addition(first, second));
+
+        System.out.println(subtraction(first, second));
+
+        System.out.println(multiplication(first, second, 0));
+
+        System.out.println(division(first, second));
+
+        System.out.println(modulus(first, second));
+
+        factorial(valid());
 
         System.out.println("Would you like to roll the dice?\n(y/n)");
 
