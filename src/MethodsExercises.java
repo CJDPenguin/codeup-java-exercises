@@ -55,6 +55,10 @@ public class MethodsExercises {
         System.out.println(factor);
     }
 
+    public static int dice(int sides) {
+        return (int) ((Math.random() * ((sides - 1) + 1)));
+    }
+
     public static void main(String[] args) {
 
 //        System.out.println("Enter your first number: ");
@@ -75,8 +79,20 @@ public class MethodsExercises {
 //
 //        System.out.println(modulus(first, second));
 
-        factorial(valid());
+//        factorial(valid());
 
+        System.out.println("Would you like to roll the dice?\n(y/n)");
+
+        String go = in.next();
+        while (go.equals("y")){
+            System.out.println("How big are the dice?");
+            int die = in.nextInt();
+            int roll1 = dice(die);
+            int roll2 = dice(die);
+            System.out.println("You rolled a " + roll1 + " & a " + roll2);
+            System.out.println("Would you like to roll again?\n(y/n)");
+            go = in.next();
+        }
 
 
     }
