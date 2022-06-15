@@ -21,7 +21,7 @@ public class ConsoleAdventureGame {
                 return (attack() * 3);
             }
             case "MAGE" -> {
-                return attack() + 3;
+                return attack() + 5;
             }
             default -> {
                 return attack() + 1;
