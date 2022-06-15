@@ -47,7 +47,7 @@ public class ConsoleAdventureGame {
             String action = in.next().toLowerCase();
 
             if (action.equalsIgnoreCase(lastMove) && !lastMove.equals("attack")) {
-                System.out.println("*The dragon grows wise to your tactics and defends himself from your strike.*");
+                System.out.println("*The dragon grows wise to your tactics and defends himself.*");
                 action(heroHP, baddieHP, job,pot, "");
             } else {
                 switch (action) {
