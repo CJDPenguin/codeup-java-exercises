@@ -4,31 +4,27 @@ public class ConsoleAdventureGame {
 
     static Scanner in = new Scanner(System.in);
 
-    public static int damage() {
+    public static int attack() {
         return (int) ((Math.random() * 5) + 1);
     }
 
-    public static int attack() {
-            return damage();
-        }
-
-    public static int heal(String job) {
-        return damage()*2;
+    public static int heal() {
+        return attack()*2;
     }
 
     public static int special(String job) {
         switch (job) {
             case "FIGHTER" -> {
-                return (int) ((damage() + damage())*1.5);
+                return (int) ((attack() + attack())*1.5);
             }
             case "THIEF" -> {
-                return (damage() * 3);
+                return (attack() * 3);
             }
             case "MAGE" -> {
-                return damage() + 3;
+                return attack() + 3;
             }
             default -> {
-                return damage() + 1;
+                return attack() + 1;
             }
         }
     }
@@ -36,7 +32,7 @@ public class ConsoleAdventureGame {
     public static void action(int heroHP, int baddieHP, String job, int pot, String lastMove) {
         if (baddieHP < 30) {
             System.out.println("*The dragon strikes at you with burning claws, raking you viciously*");
-            heroHP -= damage();
+            heroHP -= attack();
         }
         if (heroHP <= 0) {
             System.out.println("*The dragon opens its maw and swallows you in a single great gulp.*");
@@ -47,7 +43,7 @@ public class ConsoleAdventureGame {
             String action = in.next().toLowerCase();
 
             if (action.equalsIgnoreCase(lastMove) && !lastMove.equals("attack")) {
-                System.out.println("*The dragon grows wise to your tactics and defends himself.*");
+                System.out.println("*The dragon sees through your tactics and defends himself.*");
                 action(heroHP, baddieHP, job,pot, "");
             } else {
                 switch (action) {
@@ -60,7 +56,7 @@ public class ConsoleAdventureGame {
                         if (job.equals("CLERIC") || pot > 0) {
                             pot--;
                             System.out.println("*You pause for a moment, and the Great Lady restores you!*");
-                            action(heroHP + heal(job), baddieHP, job, pot, action);
+                            action(heroHP + heal(), baddieHP, job, pot, action);
                         } else {
                             System.out.println("*You try to pause, but cannot catch your breath before the dragon's next attack.*");
                             action(heroHP, baddieHP, job, pot, action);
@@ -114,13 +110,13 @@ public class ConsoleAdventureGame {
 
     public static void main(String[] args) {
         System.out.println("*The reddened chubby cheeks of an middle aged barkeep greet your eyes as they flutter open. The faint aroma of alcohol wafting in front of your nose as he asks a question.*\nWhat is your name, brave adventurer?");
-        String name = in.next();
+        String name = in.next().toUpperCase();
         System.out.printf("Well met, %s. I've never seen one of your ilk, how do you make your way through this world?\n(Are you a FIGHTER, THIEF, MAGE, or CLERIC?)",name);
         String job = in.next().toUpperCase();
         System.out.printf("Ah... I've heard tell of those that follow the path of the %s, but haven't met one. Mayhaps you are precisely the deliverance we have been praying for. There is a terrible dragon plaguing the village, having burned the harvest and eaten the livestock, it now hunts for the villagers themselves. No one is safe outside their homes. What say you, can we count on you to slay this dragon?\n(Yes/No)", job);
         String answer = in.next();
         if (answer.equalsIgnoreCase("yes")) {
-            System.out.println("Good on ye lad! I knew ye had the stones fo' it. Remember, it's dangerous to go alone, so you might be wanting this.\n*The barkeep hands you a long familiar package, which you unwrap to reveal your sword. You buckle it about your waist and head for the door*\nOne last thing, lad. May the Good Lady be with you.\n*You open the door and head into the village.*");
+            System.out.println("Good on ye! I knew ye had the stones fo' it. Remember, it's dangerous to go alone, so you might be wanting this.\n*The barkeep hands you a long familiar package, which you unwrap to reveal your sword. You buckle it about your waist and head for the door*\nOne last thing, lad. May the Good Lady be with you.\n*You open the door and head into the village.*");
             move(job);
         } else {
             System.out.println("Ooooh, you almost had it.");
