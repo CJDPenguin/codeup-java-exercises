@@ -40,7 +40,7 @@ public class ConsoleAdventureGame {
     }
 
     public static void action(int heroHP, int baddieHP, String job, int pot) {
-        if (baddieHP < 20) {
+        if (baddieHP < 40) {
             System.out.println("The dragon strikes at you with burning claws, raking you viciously");
             heroHP -= damage();
         }
@@ -84,15 +84,15 @@ public class ConsoleAdventureGame {
 
 
     public static void main(String[] args) {
-        System.out.println("*The reddened chubby cheeks of an middle aged barkeep greet your eyes as the flutter open. The faint aroma of alcohol wafting in front of your nose as he asks a question.*\nWhat is your name, brave adventurer?");
+        System.out.println("*The reddened chubby cheeks of an middle aged barkeep greet your eyes as they flutter open. The faint aroma of alcohol wafting in front of your nose as he asks a question.*\nWhat is your name, brave adventurer?");
         String name = in.next();
         System.out.printf("Well met, %s. I've never seen one of your ilk, how do you make your way through this world?\n(Are you a FIGHTER, THIEF, MAGE, or CLERIC?)",name);
         String job = in.next().toUpperCase();
         System.out.printf("Ah... I've heard tell of those that follow the path of the %s, but haven't met one. Mayhaps you are precisely the deliverance we have been praying for. There is a terrible dragon plaguing the village, having burned the harvest and eaten the livestock, it now hunts for the villagers themselves. No one is safe outside their homes. What say you, can we count on you to slay this dragon?\n(Yes/No)", job);
         String answer = in.next();
         if (answer.equalsIgnoreCase("yes")) {
-            System.out.println("Good on ye lad! I knew ye had the stones fo' it. Remember, it's dangerous to go alone, so you might be wanting this.\n*The barkeep hands you a long familiar package, which you unwrap to reveal your sword. You buckle it about your waist and head for the door*\nOne last thing, lad. May the lady of the lake be with you.");
-            action(20,20,job,1);
+            System.out.println("Good on ye lad! I knew ye had the stones fo' it. Remember, it's dangerous to go alone, so you might be wanting this.\n*The barkeep hands you a long familiar package, which you unwrap to reveal your sword. You buckle it about your waist and head for the door*\nOne last thing, lad. May the lady of the lake be with you.\n*You open the door and head into the village. In short order a great green dragon swoops from the sky and lands in front of you.*");
+            action(20,40,job,1);
         } else {
             System.out.println("Ooooh, you almost had it.");
         }
