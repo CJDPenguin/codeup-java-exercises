@@ -82,7 +82,7 @@ public class ConsoleAdventureGame {
     }
 
     public static void move (String job) {
-        System.out.println("*You survey the rubble of the village before you, smoke rising in the distance from the burning fields, the air strangely silent in the absence of the calls of birds and other animals. Not a single other soul in sight. The hair stands on end on the back of your neck, you need only set off in a direction*\n(Forward, Left, Right, Back");
+        System.out.println("*You survey the rubble of the village before you, smoke rising in the distance from the burning fields, the air strangely silent in the absence of the calls of birds and other animals. Not a single other soul in sight. The hair stands on end on the back of your neck, you need only set off in a direction*\n(Forward, Left, Right, Back)");
         String direction = in.next().toLowerCase();
         switch (direction) {
             case "forward" -> {
