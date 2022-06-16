@@ -76,11 +76,11 @@ public class Input {
         return input.nextDouble();
     }
 
-    double getDouble() {
+    public double getDouble() {
         return input.nextDouble();
     }
 
-    boolean yesNo(boolean prompt) {
+    public boolean yesNo(boolean prompt) {
         if (prompt) {
             System.out.println("Enter yes, y, or agree to enter into an eternal blood contract with Cthulu");
         }
