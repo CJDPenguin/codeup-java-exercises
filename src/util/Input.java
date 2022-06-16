@@ -5,22 +5,23 @@ import java.util.Scanner;
 public class Input {
     private final Scanner input = new Scanner(System.in);
 
-    String getString(boolean prompt) {
+    public String getString(boolean prompt) {
         if (prompt) {
             System.out.println("Enter a string");
         }
             return input.nextLine();
     }
 
-    String getString(){
+    public String getString(){
         return input.nextLine();
     }
 
-    int getInt(int min, int max, boolean prompt) {
+    public int getInt(int min, int max, boolean prompt) {
         if (prompt) {
             System.out.printf("Enter a whole number between %d & %d\n", min, max);
         }
             int check = input.nextInt();
+
             if (check >= min && check <= max) {
                 return check;
             } else {
@@ -28,7 +29,7 @@ public class Input {
             }
         }
 
-    int getInt(int min, int max) {
+    public int getInt(int min, int max) {
         int check = input.nextInt();
         if (check >= min && check <= max) {
             return check;
@@ -37,18 +38,18 @@ public class Input {
         }
     }
 
-    int getInt(boolean prompt) {
+    public int getInt(boolean prompt) {
         if (prompt) {
             System.out.println("Enter a whole number");
         }
         return input.nextInt();
     }
 
-    int getInt() {
+    public int getInt() {
         return input.nextInt();
     }
 
-    double getDouble(double min, double max, boolean prompt) {
+    public double getDouble(double min, double max, boolean prompt) {
         if (prompt) {
             System.out.printf("Enter a number between %f & %f\n", min, max);
         }
@@ -60,7 +61,7 @@ public class Input {
         }
     }
 
-    double getDouble(double min, double max) {
+    public double getDouble(double min, double max) {
         double check = input.nextDouble();
         if (check >= min && check <= max) {
             return check;
@@ -69,7 +70,7 @@ public class Input {
         }
     }
 
-    double getDouble(boolean prompt) {
+    public double getDouble(boolean prompt) {
         if (prompt) {
             System.out.println("Enter a number");
         }
@@ -88,7 +89,7 @@ public class Input {
         return check.equalsIgnoreCase("yes") || check.equalsIgnoreCase("y") || check.equalsIgnoreCase("agree");
     }
 
-    boolean yesNo() {
+    public boolean yesNo() {
         String check = input.next();
         return check.equalsIgnoreCase("yes") || check.equalsIgnoreCase("y") || check.equalsIgnoreCase("agree");
     }
