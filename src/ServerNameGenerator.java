@@ -6,7 +6,7 @@ public class ServerNameGenerator {
     static String[] nouns = {"tiger", "teenager", "clown", "monkey", "farmer", "architect", "philosopher", "youngling", "alligator", "tower", "falcon"};
 
     static String randomElement(String[] array) {
-        int random = (int) Math.floor((Math.random() * (array.length-1)) + 1);
+        int random = (int) Math.floor(Math.random() * array.length);
         return array[random];
     }
 
