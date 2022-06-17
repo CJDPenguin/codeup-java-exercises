@@ -9,11 +9,11 @@ public class Input {
         if (prompt) {
             System.out.println("Enter a string");
         }
-            return input.nextLine();
+            return input.next();
     }
 
     public String getString(){
-        return input.nextLine();
+        return input.next();
     }
 
     public int getInt(int min, int max, boolean prompt) {
