@@ -9,42 +9,65 @@ public class GradesApplication {
 
     static Input in = new Input();
 
-    public static void studentDetails(HashMap hash) {
-        System.out.println("Are you looking for a report, information on overall class performance, or a individual student?");
-        System.out.println("Enter \"report\", \"overall\", or \"student\"");
-        String choice = in.getString();
-        switch (choice) {
-            case "student" :
-                System.out.println("\nWhich student do you need details on?");
-                String input = in.getString();
-                if (hash.containsKey(input)){
-                    Student detailed = (Student) hash.get(input);
-                    System.out.printf("Name: %s - GitHub Username: %s\n", detailed.getName(), input);
-                    System.out.printf("Average: %.2f\n", detailed.getGradeAverage());
-                    System.out.println("Grades: " + detailed.getGrades());
-                    System.out.println("Would you like to find another student?");
-                    boolean check = in.yesNo();
-                    if(check){
-                        studentDetails(hash);
-                    } else {
-                        System.out.println("Thank you for using Eighties Gradies");
-                    }
-                } else {
-                    System.out.printf("Sorry, no student found with the GitHub username: %s.\n", input);
-                    System.out.println("Would you like to find another student?");
-                    boolean check = in.yesNo();
-                    if (check) {
-                        studentDetails(hash);
-                    } else {
-                        System.out.println("Thank you for using Eighties Gradies");
-                    }
-                }
-            case "overall":
-                System.out.printf("Number of students: %d\n",hash.size());
-                System.out.printf("Class average: %.2f\n", 40.0);
-        }
+    public static void student(HashMap <String, Student> hash) {
+        System.out.println("\nWhich student do you need details on?");
+        String input = in.getString();
+        if (hash.containsKey(input)){
+            Student detailed = hash.get(input);
+            System.out.printf("Name: %s - GitHub Username: %s\n", detailed.getName(), input);
+            System.out.printf("Average: %.2f\n", detailed.getGradeAverage());
+            System.out.println("Grades: " + detailed.getGrades());
+            System.out.println("Would you like to find another student?");
+            boolean check = in.yesNo();
+            if(check){
+                student(hash);
+            } else {
+                studentDetails(hash);
+            }
+        } else {
+            System.out.printf("Sorry, no student found with the GitHub username: %s.\n", input);
+            System.out.println("Would you like to find another student?");
+            boolean check = in.yesNo();
+            if (check) {
+                student(hash);
+            } else {
+                studentDetails(hash);
+            }
         }
     }
+
+    public static void studentDetails(HashMap <String, Student> hash) {
+        System.out.println("Are you looking for a report, information on overall class performance, or a individual student?");
+        System.out.println("Enter \"report\", \"overall\", \"student\", or \"quit\"");
+        String choice = in.getString();
+        switch (choice) {
+            case "student" : student(hash); break;
+
+            case "overall":
+                System.out.printf("Number of students: %d\n",hash.size());
+                double gradeTotal = 0;
+                for (Student student : hash.values()) {
+                    gradeTotal += student.getGradeAverage();
+                }
+                System.out.printf("Class average: %.2f\n", gradeTotal/hash.size());
+                studentDetails(hash);
+                break;
+            case "report":
+                System.out.println("Here's your report");
+                System.out.println("name,github_username,average");
+                for (Map.Entry<String, Student> student : hash.entrySet()) {
+                    System.out.printf("%s,%s,%.2f\n", student.getValue().getName(), student.getKey(), student.getValue().getGradeAverage());
+                }
+                studentDetails(hash);
+                break;
+            case "quit":
+                System.out.println("Thank you for using Eighties Gradies");
+                break;
+            default:
+                System.out.println("Command unknown, please enter \"report\", \"overall\", \"student\", or \"quit\"");
+                    studentDetails(hash);
+        }
+        }
 
     public static void main(String[] args) {
         HashMap<String, Student> students = new HashMap<>();
@@ -81,7 +104,7 @@ public class GradesApplication {
         students.get("AlwaysAdam").addGrade(71);
         students.get("AlwaysAdam").addGrade(79);
 
-        System.out.println("Welcome to the Eighties Gradies Academic Performance Tracking Application.\nHere are our student's GitHub usernames:");
+        System.out.println("Welcome to the Eighties Gradies Academic Performance Tracking Application.\nHere are our student's GitHub usernames:\n");
 
         for (Map.Entry<String, Student> student : students.entrySet()) System.out.printf("|%s|", student.getKey());
         studentDetails(students);
