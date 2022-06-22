@@ -1,6 +1,5 @@
-package Movies;
+package movies;
 
-import movies.MoviesArray;
 import util.Input;
 
 import java.util.Arrays;

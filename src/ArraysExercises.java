@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 import static java.util.Arrays.fill;
 
-public class ArraysExercise {
+public class ArraysExercises {
 
 
     public static String[] people = new String[3];
@@ -19,9 +19,9 @@ public class ArraysExercise {
 
         fill(people, "Bob");
 
-        String[] check = addPerson(ArraysExercise.people,"Steve");
+        String[] check = addPerson(ArraysExercises.people,"Steve");
 
-        for (String person : ArraysExercise.people) {
+        for (String person : ArraysExercises.people) {
             System.out.println(person);
         }
         for (String person : check) {
