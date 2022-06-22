@@ -67,7 +67,7 @@ public class GradesApplication {
                 studentDetails(hash);
                 break;
             case "report":
-                System.out.println("Here's your report");
+                System.out.println("Here's your report:");
                 System.out.println("name,github_username,average");
                 for (Map.Entry<String, Student> student : hash.entrySet()) {
                     System.out.printf("%s,%s,%.2f,%.2f\n", student.getValue().getName(), student.getKey(), student.getValue().getGradeAverage(), student.getValue().getAttendancePercentage());
