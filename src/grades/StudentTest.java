@@ -9,10 +9,17 @@ public class StudentTest {
         chris.addGrade(90);
         chris.addGrade(90);
         chris.addGrade(90);
+        chris.recordAttendance("2022-06-01", "P");
+        chris.recordAttendance("2022-06-02", "A");
+        chris.recordAttendance("2022-06-03", "p");
+        chris.recordAttendance("2022-06-04", "a");
 
         System.out.println("------------");
         System.out.println(chris.getName());
         System.out.println(chris.getGradeAverage());
+        System.out.println(chris.getAttendance());
+        System.out.println(chris.getAttendancePercentage());
+        System.out.println(chris.getAbsences());
 
         julie.addGrade(100);
         julie.addGrade(100);
