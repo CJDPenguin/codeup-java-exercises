@@ -20,65 +20,82 @@ public class Input {
         if (prompt) {
             System.out.printf("Enter a whole number between %d & %d\n", min, max);
         }
-            int check = input.nextInt();
-
-            if (check >= min && check <= max) {
-                return check;
+        int num = 0;
+        try {
+            num = Integer.parseInt(getString());
+            if (num >= min && num <= max) {
+                return num;
             } else {
                 return getInt(min, max, prompt);
             }
+        } catch (NumberFormatException e) {
+            getInt(min, max, prompt);
         }
-
-    public int getInt(int min, int max) {
-        int check = input.nextInt();
-        if (check >= min && check <= max) {
-            return check;
-        } else {
-            return getInt(min, max);
-        }
+        return num;
     }
 
     public int getInt(boolean prompt) {
         if (prompt) {
             System.out.println("Enter a whole number");
         }
-        return input.nextInt();
+        int num = 0;
+        try {
+            num = Integer.parseInt(getString());
+        } catch (NumberFormatException e) {
+            getInt(prompt);
+        }
+        return num;
     }
 
     public int getInt() {
-        return input.nextInt();
+        int num = 0;
+        try {
+            num = Integer.parseInt(getString());
+        } catch (NumberFormatException e) {
+            getInt(true);
+        }
+        return num;
     }
 
     public double getDouble(double min, double max, boolean prompt) {
         if (prompt) {
             System.out.printf("Enter a number between %f & %f\n", min, max);
         }
-        double check = input.nextDouble();
-        if (check >= min && check <= max) {
-            return check;
-        } else {
-            return getDouble(min, max, prompt);
+        double num = 0;
+        try {
+            num = Double.parseDouble(getString());
+            if (num >= min && num <= max){
+                return num;
+            } else {
+                return getDouble(min, max, prompt);
+            }
+        } catch (NumberFormatException e) {
+            getDouble(min, max, prompt);
         }
-    }
-
-    public double getDouble(double min, double max) {
-        double check = input.nextDouble();
-        if (check >= min && check <= max) {
-            return check;
-        } else {
-            return getDouble(min, max);
-        }
+        return num;
     }
 
     public double getDouble(boolean prompt) {
         if (prompt) {
             System.out.println("Enter a number");
         }
-        return input.nextDouble();
+        double num = 0;
+        try {
+            num = Double.parseDouble(getString());
+        } catch (NumberFormatException e) {
+            getDouble(prompt);
+        }
+        return num;
     }
 
     public double getDouble() {
-        return input.nextDouble();
+        double num = 0;
+        try {
+            num = Double.parseDouble(getString());
+        } catch (NumberFormatException e) {
+            getDouble(true);
+        }
+        return num;
     }
 
     public boolean yesNo(boolean prompt) {
