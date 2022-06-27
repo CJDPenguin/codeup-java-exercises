@@ -29,6 +29,7 @@ public class Input {
                 return getInt(min, max, prompt);
             }
         } catch (NumberFormatException e) {
+            e.printStackTrace();
             getInt(min, max, prompt);
         }
         return num;
@@ -42,6 +43,7 @@ public class Input {
         try {
             num = Integer.parseInt(getString());
         } catch (NumberFormatException e) {
+            e.printStackTrace();
             getInt(prompt);
         }
         return num;
@@ -52,6 +54,7 @@ public class Input {
         try {
             num = Integer.parseInt(getString());
         } catch (NumberFormatException e) {
+            e.printStackTrace();
             getInt(true);
         }
         return num;
@@ -70,6 +73,7 @@ public class Input {
                 return getDouble(min, max, prompt);
             }
         } catch (NumberFormatException e) {
+            e.printStackTrace();
             getDouble(min, max, prompt);
         }
         return num;
@@ -83,6 +87,7 @@ public class Input {
         try {
             num = Double.parseDouble(getString());
         } catch (NumberFormatException e) {
+            e.printStackTrace();
             getDouble(prompt);
         }
         return num;
@@ -93,6 +98,7 @@ public class Input {
         try {
             num = Double.parseDouble(getString());
         } catch (NumberFormatException e) {
+            e.printStackTrace();
             getDouble(true);
         }
         return num;
